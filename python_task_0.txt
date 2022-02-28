@@ -1,0 +1,126 @@
+
+# even no 
+input_no = int(input("Enter a number to check even or not: "))  
+if (input_no % 2) == 0:  
+   print("{0} is Even number".format(input_no)) 
+else:  
+   print("{0} is not a Even number".format(input_no))  
+
+
+#centigrade to farenheit
+
+celsius = float (input("Temperature value in degree centigrade: " ))  
+Fahrenheit = (celsius * 9/5) + 32  
+    
+print ('The %.2f degree centigrade is equal to: %.2f Fahrenheit'%(celsius, Fahrenheit))  
+
+
+# real numbers product
+
+initial = 0
+product = 1
+count = int(input("Enter the number of real numbers: "))
+for initial in range(count):
+    input_number = float(input("Enter a real number: "))
+    product = product * input_number
+print("The product of the numbers is: ", product)
+
+# factorial recursion
+def factorial(n): 
+    if (n==1 or n==0):
+        return 1
+    else:
+        return (n * factorial(n - 1)) 
+  
+input_num = 5; 
+print("Factorial : ",factorial(input_num))
+
+#average of 10 using while 
+count = 0
+sum = 0.0
+while(count<10):
+    number = float(input("Enter a number: "))
+    count = count + 1
+    sum = sum + number
+average = sum/10;
+print("Average is :",average)
+
+'''Largest number'''
+def largest(input_listlist):
+    large= input_list[0]
+    for value in input_list:
+        if value>large:
+            large = value
+    return large
+
+input_list=[1,2,3,4,5,6]
+# input_list = input("Enter space seperated list of numbers")
+print('Largest no on the list:',largest(input_list))
+
+# binary search
+
+import random
+array = list()
+for i in range(10):
+    array.append(random.randrange(5,70))
+array.append(34)
+
+print("Input list of numbers:",sorted(array))
+
+def binarysearch(array,start,end,target):
+    if end>=start:
+        mid = start +(end - start) //2
+        if array[mid] == target:
+            return mid
+        
+        elif array[mid]>target:
+            return binarysearch(array,start,mid-1,target)
+        
+        else:
+            return binarysearch(array,mid+1,end,target)
+    else:
+        return -1
+        
+res = binarysearch(sorted(array),0,len(array)-1,34)
+if res != -1:
+    print('Element found at position : ',res)
+else:
+    print("Element not found")
+
+# Linear search
+
+def linear_search(input_list, start, end, target):
+	if end < start:
+		return -1
+	if input_list[start] == target:
+		return start
+	if input_list[end] == target:
+		return end
+	return linear_search(input_list, start+1, end-1, target)
+
+
+input_list = [1,2,3,4,5,6]
+target = 6
+#input_list = input("Enter space seperated list of numbers")
+#target = input("Enter target no to be found")
+result = linear_search(input_list, 0, len(input_list)-1, target)
+if result != -1:
+	print ("Target number found at index",result)
+else:
+	print ("Target number not in given list of numbers")
+
+
+## delete on given index
+myList = [1,2,3,4,5,6,7,8,9,10]
+print("List before deleting element",myList)
+length = len(myList)
+input_index = int(input("Enter index within lenght to eb deleted  :"))
+myList.pop(4)
+print("deleted element on index:",input_index,myList)
+
+     
+# print dict key and value 
+new_dict = {"val1": 1, "val2": 2, "val3": 3, "val4": 4}
+
+for pair in new_dict.items():
+    print(pair)
